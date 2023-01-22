@@ -36,6 +36,9 @@ function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) {
             console.error(err);
+        }
+        else {
+            markdown.generateMarkdown(data);
         }   
     })
 }
@@ -45,7 +48,7 @@ function init() {
     inquirer
         .prompt(questions)
         .then((data) => {
-            // writeToFile("README.md", data);
+            writeToFile("README.md", data)
             console.log(data);
         });
 }
