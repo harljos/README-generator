@@ -33,11 +33,69 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  switch(license) {
+    case "Apache":
+      return "";
+    case "GNU GPL v3.0":
+      return "";
+    case "MIT":
+      return "";
+    case "BSD 2-Clause":
+      return "";
+    case "BSD 3-Clause":
+      return "";
+    case "Boost":
+      return "";
+    case "Creative Commons":
+      return "";
+    case "Eclipse":
+      return "";
+    case "GNU AGPL v3.0":
+      return "";
+    case "GNU GPL v2.0":
+      return "";
+    case "GNU LGPL v2.1":
+      return;
+    case "Mozilla":
+      return "";
+    default:
+      return "";
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  switch(license) {
+    case "Apache":
+      return "This project is listed under the Apache license";
+    case "GNU GPL v3.0":
+      return "This project is listed under the GNU GPL v3.0 license";
+    case "MIT":
+      return "This project is listed under the MIT license";
+    case "BSD 2-Clause":
+      return "This project is listed under the BSD 2-Clause license";
+    case "BSD 3-Clause":
+      return "This project is listed under the BSD 3-Clause license";
+    case "Boost":
+      return "This project is listed under the Boost license";
+    case "Creative Commons":
+      return "This project is listed under the Creative Commons license";
+    case "Eclipse":
+      return "This project is listed under the Eclipse license";
+    case "GNU AGPL v3.0":
+      return "This project is listed under the GNU AGPL v3.0 license";
+    case "GNU GPL v2.0":
+      return "This project is listed under the GNU GPL v2.0 license";
+    case "GNU LGPL v2.1":
+      return "This project is listed under the GNU LGPL v2.1 license";
+    case "Mozilla":
+      return "This project is listed under the Mozilla license";
+    default:
+      return "";
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
