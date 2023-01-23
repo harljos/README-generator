@@ -7,40 +7,37 @@ const questions = [
     {
         type: "input",
         message: "What is the title of the project?",
-        name: "Title",
+        name: "title",
     },
     {
         type: "input",
         message: "Provide a Description of the project.",
-        name: "Description",
+        name: "description",
     },
     {
         type: "input",
         message: "What license is your project using?",
-        name: "License",
+        name: "license",
     },
     {
         type: "input",
         message: "What is the usage for the project?",
-        name: "Usage",
+        name: "usage",
     },
     {
         type: "input",
         message: "Who are the contributors?",
-        name: "Contributors",
+        name: "contributors",
     }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
+    fs.writeFile(fileName, markdown.generateMarkdown(data), (err) => {
         if (err) {
             console.error(err);
-        }
-        else {
-            markdown.generateMarkdown(data);
-        }   
-    })
+        } 
+    });
 }
 
 // TODO: Create a function to initialize app
@@ -48,8 +45,7 @@ function init() {
     inquirer
         .prompt(questions)
         .then((data) => {
-            writeToFile("README.md", data)
-            console.log(data);
+            writeToFile("README2.md", data)
         });
 }
 
