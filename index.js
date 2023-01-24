@@ -1,37 +1,57 @@
-// TODO: Include packages needed for this application
+// Includes packages needed for the application
 const inquirer = require("inquirer");
 const markdown = require("./utils/generateMarkdown.js");
 const fs = require("fs");
-// TODO: Create an array of questions for user input
+// an array of questions for user input
 const questions = [
     {
         type: "input",
         message: "What is the title of the project?",
-        name: "title",
+        name: "title"
     },
     {
         type: "input",
         message: "Provide a Description of the project.",
-        name: "description",
+        name: "description"
     },
     {
         type: "input",
         message: "What license is your project using?",
-        name: "license",
+        name: "license"
+    },
+    {
+        type: "input",
+        message: "What are the installation instructions?",
+        name: "installation"
     },
     {
         type: "input",
         message: "What is the usage for the project?",
-        name: "usage",
+        name: "usage"
     },
     {
         type: "input",
-        message: "Who are the contributors?",
-        name: "contributors",
+        message: "What are the contributions guidelines?",
+        name: "contribution"
+    },
+    {
+        type: "input",
+        message: "What are the instructions to run tests?",
+        name: "tests"
+    },
+    {
+        type: "input",
+        message: "What is your github username?",
+        name: "github"
+    },
+    {
+        type: "input",
+        message: "What is your email?",
+        name: "email"
     }
 ];
 
-// TODO: Create a function to write README file
+// function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, markdown.generateMarkdown(data), (err) => {
         if (err) {
@@ -40,12 +60,12 @@ function writeToFile(fileName, data) {
     });
 }
 
-// TODO: Create a function to initialize app
+// function to initialize app
 function init() {
     inquirer
         .prompt(questions)
         .then((data) => {
-            writeToFile("README2.md", data)
+            writeToFile("README.md", data)
         });
 }
 

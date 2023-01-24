@@ -1,4 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   switch(license) {
@@ -22,8 +22,6 @@ function renderLicenseBadge(license) {
       return "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)";
     case "GNU GPL v2.0":
       return "[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)";
-    case "GNU LGPL v2.1":
-      return;
     case "Mozilla":
       return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
     default:
@@ -31,40 +29,11 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
+// function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {
-  switch(license) {
-    case "Apache":
-      return "";
-    case "GNU GPL v3.0":
-      return "";
-    case "MIT":
-      return "";
-    case "BSD 2-Clause":
-      return "";
-    case "BSD 3-Clause":
-      return "";
-    case "Boost":
-      return "";
-    case "Creative Commons":
-      return "";
-    case "Eclipse":
-      return "";
-    case "GNU AGPL v3.0":
-      return "";
-    case "GNU GPL v2.0":
-      return "";
-    case "GNU LGPL v2.1":
-      return;
-    case "Mozilla":
-      return "";
-    default:
-      return "";
-  }
-}
+function renderLicenseLink(license) {}
 
-// TODO: Create a function that returns the license section of README
+// function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   switch(license) {
@@ -93,14 +62,13 @@ function renderLicenseSection(license) {
     case "Mozilla":
       return "This project is listed under the Mozilla license";
     default:
-      return "";
+      return "N/A";
   }
 }
 
-// TODO: Create a function to generate markdown for README
+// function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title} 
-
   ${renderLicenseBadge(data.license)}
 
   ## Description
@@ -112,14 +80,15 @@ function generateMarkdown(data) {
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
-  * [Contributing](#countributing)
+  * [Contributing](#contributing)
   * [Tests](#tests)
+  * [Questions](#questions)
   
   ## Installation
 
-  To install necessary dependencies run the following command
+  To install necessary dependencies run the following command:
   ${"```"} 
-  npm i
+  ${data.installation}
   ${"```"}
 
   ## Usage
@@ -132,14 +101,18 @@ function generateMarkdown(data) {
 
   ## Contributing
 
-  ${data.contributors}
+  ${data.contribution}
 
   ## Tests
 
-  To run tests, run the following command
+  To run tests, run the following command:
   ${"```"}
-  npm test
-  ${"```"} 
+  ${data.tests}
+  ${"```"}
+  
+  ## Questions
+
+  If you have any questions about the repo, open an issue or contact me directly at ${data.email}. You can find more of my work at [${data.github}](https://github.com/${data.github}/).
 `;}
 
 module.exports = {generateMarkdown};
